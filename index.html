@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사장학개론 독서모임 — 홍요셉</title>
+<meta name="description" content="『사장학개론』 독서모임 토론 발표 — 3가지 질문에 대한 나의 대답 (발표자 홍요셉)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#ff385c;--primary-active:#e00b41;--primary-disabled:#ffd1da;
+  --ink:#222222;--body:#3f3f3f;--muted:#6a6a6a;--muted-soft:#929292;
+  --hairline:#dddddd;--hairline-soft:#ebebeb;--canvas:#ffffff;
+  --surface-soft:#f7f7f7;--surface-strong:#f2f2f2;--on-primary:#ffffff;
+  --ink-soft:#34384a;
+  --shadow:0 0 0 1px rgba(0,0,0,0.02),0 2px 6px rgba(0,0,0,0.04),0 4px 8px rgba(0,0,0,0.08);
+  --font-sans:'Noto Sans KR',sans-serif;--font-serif:'Noto Serif KR',serif;
+  --r-sm:8px;--r-md:14px;--r-lg:20px;--r-xl:32px;--r-full:9999px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:var(--canvas);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--primary);width:0%;z-index:200;transition:width .08s linear;box-shadow:0 0 8px rgba(255,56,92,.4);}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline);height:60px;display:flex;align-items:center;padding:0 clamp(16px,4vw,80px);justify-content:space-between;}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-orb{width:34px;height:34px;border-radius:var(--r-full);background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;box-shadow:0 2px 8px rgba(255,56,92,.28);}
+.nav-name{font-size:14px;font-weight:600;color:var(--ink);}
+.nav-links{display:flex;gap:2px;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:var(--r-full);transition:background .15s,color .15s;}
+.nav-links a:hover{background:var(--surface-soft);color:var(--ink);}
+@media(max-width:760px){.nav-links{display:none;}}
+.wrap{max-width:840px;margin:0 auto;padding:0 clamp(16px,4vw,40px);}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--primary);margin-bottom:14px;}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--primary);}
+.q-pill{display:inline-block;background:var(--primary);color:#fff;font-size:12px;font-weight:700;border-radius:var(--r-full);padding:3px 13px;}
+.q-pill-lg{font-size:14px;padding:5px 18px;}
+
+/* Hero — circles layered BEHIND content */
+.hero{padding:72px 0 60px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.hero-bg span{position:absolute;border-radius:50%;display:block;}
+.hero-bg .c1{width:300px;height:300px;background:var(--surface-soft);top:-90px;right:-90px;}
+.hero-bg .c2{width:180px;height:180px;background:var(--primary-disabled);bottom:-30px;right:40px;opacity:.45;}
+.hero .wrap{position:relative;z-index:2;}
+@media(max-width:760px){
+  .hero-bg .c1{width:200px;height:200px;top:-70px;right:-70px;}
+  .hero-bg .c2{width:130px;height:130px;bottom:auto;top:30px;right:-40px;opacity:.35;}
+}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--surface-strong);border-radius:var(--r-full);padding:6px 16px;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:26px;}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--primary);}
+.hero h1{font-size:clamp(34px,6vw,52px);font-weight:700;line-height:1.15;letter-spacing:-1.5px;color:var(--ink);margin-bottom:14px;}
+.hero-sub{font-size:clamp(18px,3vw,24px);font-weight:300;color:var(--body);margin-bottom:12px;}
+.hero-tagline{font-size:clamp(14px,2.4vw,16px);font-style:italic;color:var(--primary);margin-bottom:34px;}
+.hero-meta{display:flex;align-items:center;gap:18px;}
+.hero-line{width:44px;height:1px;background:var(--hairline);}
+.hero-presenter{font-size:14px;color:var(--muted);}
+
+/* Quick nav — tappable on all screens */
+.quicknav{background:var(--surface-soft);border-top:1px solid var(--hairline-soft);border-bottom:1px solid var(--hairline-soft);padding:22px 0;}
+.quicknav-label{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.quicknav-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+@media(max-width:600px){.quicknav-grid{grid-template-columns:repeat(2,1fr);}}
+.qn-btn{display:flex;flex-direction:column;gap:4px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-md);padding:14px 16px;text-decoration:none;box-shadow:var(--shadow);transition:transform .15s,border-color .15s,box-shadow .15s;}
+.qn-btn:hover,.qn-btn:active{transform:translateY(-2px);border-color:var(--primary);box-shadow:0 0 0 1px rgba(255,56,92,.15),0 8px 18px rgba(0,0,0,.08);}
+.qn-tag{font-size:11px;font-weight:700;color:var(--primary);}
+.qn-title{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;}
+
+.section-divider{border:none;border-top:1px solid var(--hairline-soft);}
+.section{padding:60px 0;scroll-margin-top:70px;}
+.section-title{font-size:clamp(22px,4vw,30px);font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3;}
+.section-sub{font-size:15px;color:var(--muted);margin-bottom:36px;}
+
+/* Intro reading cards */
+.read-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 28px;}
+@media(max-width:680px){.read-grid{grid-template-columns:1fr;}}
+.read-card{background:var(--surface-soft);border-radius:var(--r-md);padding:22px;border:1px solid transparent;}
+.read-card.now{background:var(--canvas);border-color:var(--primary);box-shadow:var(--shadow);}
+.read-year{font-size:13px;font-weight:700;color:var(--muted-soft);margin-bottom:6px;}
+.read-card.now .read-year{color:var(--primary);}
+.read-card h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.read-card p{font-size:13px;color:var(--body);line-height:1.6;}
+.pull{font-family:var(--font-serif);font-size:clamp(19px,3.2vw,24px);font-weight:600;font-style:italic;color:var(--ink);line-height:1.5;text-align:center;padding:28px 16px;}
+.pull .accent{color:var(--primary);}
+.lead{font-size:17px;color:var(--ink);font-weight:500;line-height:1.7;margin-bottom:18px;}
+.prose-p{font-size:15px;color:var(--body);line-height:1.85;margin:14px 0;}
+.prose-p strong{color:var(--ink);font-weight:600;}
+
+/* Q overview */
+.q-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:680px){.q-overview{grid-template-columns:1fr;}}
+.q-ov-card{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-md);padding:22px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;}
+.q-ov-card:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(0,0,0,0.04),0 8px 24px rgba(0,0,0,0.1);}
+.q-ov-card .q-pill{margin-bottom:14px;}
+.q-ov-card h3{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.4;}
+.q-ov-card p{font-size:13px;color:var(--muted);line-height:1.5;}
+
+/* Full question */
+.q-block{margin-bottom:52px;}
+.q-block:last-child{margin-bottom:0;}
+.q-block-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;}
+.q-block-title{font-size:clamp(16px,2.5vw,20px);font-weight:700;color:var(--ink);line-height:1.45;padding-top:2px;}
+.book-quote{background:var(--surface-soft);border-radius:var(--r-md);padding:20px 24px 20px 52px;margin:18px 0;position:relative;}
+.book-quote::before{content:'\201C';font-family:var(--font-serif);font-size:56px;line-height:1;color:var(--hairline);position:absolute;top:6px;left:18px;}
+.book-quote p{font-family:var(--font-serif);font-size:16px;font-style:italic;color:var(--ink);line-height:1.75;}
+.q-body-text{font-size:15px;color:var(--body);line-height:1.8;margin:14px 0;}
+.discuss-list{display:flex;flex-direction:column;gap:8px;margin-top:18px;}
+.discuss-item{display:flex;align-items:flex-start;gap:10px;background:var(--canvas);border:1px solid var(--hairline-soft);border-radius:var(--r-sm);padding:12px 16px;font-size:14px;color:var(--body);line-height:1.5;transition:border-color .15s,background .15s;}
+.discuss-item:hover{border-color:var(--primary-disabled);background:#fff9fa;}
+.discuss-arrow{color:var(--primary);font-weight:700;flex-shrink:0;font-size:13px;}
+
+/* Answers */
+.answer-block{margin-bottom:60px;}
+.answer-block:last-child{margin-bottom:0;}
+.answer-label{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap;}
+.answer-label-text{font-size:clamp(17px,2.6vw,20px);font-weight:700;color:var(--ink);}
+
+/* timeline */
+.timeline{display:grid;grid-template-columns:1fr 48px 1fr;gap:14px;align-items:center;margin:22px 0;}
+@media(max-width:600px){.timeline{grid-template-columns:1fr;}.t-arrow{transform:rotate(90deg);margin:0 auto;}}
+.t-card{background:var(--surface-soft);border-radius:var(--r-md);padding:22px;border:1px solid transparent;}
+.t-card.now{background:var(--canvas);border-color:var(--primary);box-shadow:var(--shadow);}
+.t-year{font-size:12px;color:var(--muted-soft);margin-bottom:4px;}
+.t-card.now .t-year{color:var(--primary);}
+.t-name{font-size:22px;font-weight:700;color:var(--muted);margin-bottom:14px;}
+.t-card.now .t-name{color:var(--ink);}
+.t-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.t-list li{font-size:14px;color:var(--body);padding-left:14px;position:relative;line-height:1.45;}
+.t-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--primary);}
+.t-arrow{width:40px;height:40px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;box-shadow:0 3px 10px rgba(255,56,92,.3);flex-shrink:0;}
+
+/* comparison table */
+.cmp{border:1px solid var(--hairline);border-radius:var(--r-md);overflow:hidden;margin:24px 0;box-shadow:var(--shadow);}
+.cmp-row{display:grid;grid-template-columns:1fr 1.5fr 1.5fr;}
+.cmp-row+.cmp-row{border-top:1px solid var(--hairline-soft);}
+.cmp-head .cmp-cell{font-weight:700;color:#fff;text-align:center;font-size:14px;}
+.cmp-head .cmp-cell.k{background:transparent;}
+.cmp-head .trade{background:var(--ink-soft);}
+.cmp-head .boss{background:var(--primary);}
+.cmp-cell{padding:14px 16px;font-size:13.5px;line-height:1.5;display:flex;align-items:center;}
+.cmp-cell.k{font-weight:700;color:var(--ink);background:var(--surface-soft);justify-content:flex-start;}
+.cmp-cell.trade-c{color:var(--muted);border-left:1px solid var(--hairline-soft);}
+.cmp-cell.boss-c{color:var(--ink);font-weight:500;border-left:1px solid var(--hairline-soft);}
+@media(max-width:600px){
+  .cmp-row{grid-template-columns:1fr;}
+  .cmp-head{display:none;}
+  .cmp-cell{border-left:none!important;}
+  .cmp-cell.k{font-size:13px;padding-bottom:6px;}
+  .cmp-cell.trade-c::before{content:'장사꾼 · ';color:var(--muted-soft);font-weight:600;}
+  .cmp-cell.boss-c::before{content:'사장 · ';color:var(--primary);font-weight:700;}
+  .cmp-row+.cmp-row{border-top:6px solid var(--surface-soft);}
+}
+
+/* umbrella diagram */
+.umbrella-row{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center;background:var(--surface-soft);border-radius:var(--r-md);padding:24px;margin:24px 0;}
+@media(max-width:600px){.umbrella-row{grid-template-columns:1fr;text-align:left;}.umbrella-svg{margin:0 auto;}}
+.umbrella-svg{width:180px;height:auto;}
+.umb-block+.umb-block{margin-top:16px;}
+.umb-block h5{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.umb-block.alert h5{color:var(--primary);}
+.umb-block p{font-size:14px;color:var(--body);line-height:1.6;}
+
+/* flow diagram */
+.flow{display:flex;align-items:stretch;gap:8px;margin:24px 0;flex-wrap:nowrap;}
+@media(max-width:680px){.flow{flex-direction:column;align-items:stretch;}}
+.flow-box{flex:1;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-md);padding:16px 14px;font-size:13px;color:var(--body);text-align:center;display:flex;flex-direction:column;justify-content:center;line-height:1.5;}
+.flow-box b{display:block;color:var(--ink);font-size:14px;font-weight:700;margin-top:4px;}
+.flow-box.dashed{border-style:dashed;border-color:var(--muted-soft);}
+.flow-box.dark{background:var(--primary);border-color:var(--primary);}
+.flow-box.dark b,.flow-box.dark{color:#fff;}
+.flow-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--primary);font-weight:700;font-size:18px;padding:0 4px;flex-shrink:0;min-width:46px;}
+.flow-arrow span{font-size:10px;color:var(--muted);font-weight:500;margin-top:2px;text-align:center;line-height:1.2;}
+@media(max-width:680px){.flow-arrow{transform:rotate(90deg);min-width:0;padding:6px 0;}.flow-arrow span{transform:rotate(-90deg);white-space:nowrap;}}
+
+/* decision tree */
+.tree{background:var(--surface-soft);border-radius:var(--r-md);padding:24px;margin:24px 0;}
+.tree-root{display:inline-block;background:var(--ink);color:#fff;font-weight:700;font-size:14px;border-radius:var(--r-full);padding:8px 22px;margin-bottom:18px;}
+.tree-path{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+.tree-path:last-child{margin-bottom:0;}
+.tree-cond{font-size:13px;font-weight:600;color:var(--ink);min-width:96px;}
+.tree-cond.no{color:var(--muted);}
+.tree-cond.yes{color:var(--primary);}
+.tree-conn{color:var(--primary);font-weight:700;}
+.tree-result{font-size:13.5px;font-weight:600;border-radius:var(--r-sm);padding:9px 16px;}
+.tree-result.gray{background:var(--surface-strong);color:var(--muted);}
+.tree-result.win{background:#fff;border:1.5px solid var(--primary);color:var(--ink);}
+.tree-indent{padding-left:24px;border-left:2px solid var(--hairline);margin-left:8px;}
+
+/* temple / pillars */
+.temple{margin:24px 0;}
+.temple-roof{background:var(--ink-soft);color:#fff;text-align:center;font-weight:700;font-size:15px;padding:14px;border-radius:var(--r-md) var(--r-md) 0 0;clip-path:polygon(8% 100%,0 0,100% 0,92% 100%);}
+.temple-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px 8px;background:var(--surface-soft);}
+@media(max-width:600px){.temple-cols{grid-template-columns:1fr;}}
+.temple-col{background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-sm);padding:16px;text-align:center;}
+.temple-col b{display:block;font-size:14px;color:var(--primary);font-weight:700;margin-bottom:6px;}
+.temple-col span{font-size:12.5px;color:var(--body);line-height:1.55;}
+.temple-base{background:var(--primary);color:#fff;text-align:center;font-weight:700;font-size:15px;padding:14px;border-radius:0 0 var(--r-md) var(--r-md);}
+
+.insight{background:var(--surface-soft);border-radius:var(--r-md);padding:18px 22px;margin:22px 0;display:flex;gap:14px;align-items:flex-start;}
+.insight-icon{font-size:20px;flex-shrink:0;line-height:1.4;}
+.insight-body{font-size:15px;color:var(--body);line-height:1.65;}
+.insight-body strong{color:var(--ink);}
+.insight-body em{color:var(--primary);font-style:normal;font-weight:600;}
+.callout{border-left:3px solid var(--primary);background:#fff9fa;border-radius:0 var(--r-sm) var(--r-sm) 0;padding:14px 18px;margin:20px 0;font-size:15px;font-weight:600;color:var(--ink);line-height:1.6;}
+.chal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:20px 0;}
+@media(max-width:600px){.chal-grid{grid-template-columns:1fr;}}
+.chal-chip{display:flex;align-items:flex-start;gap:10px;background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-md);padding:14px 16px;font-size:14px;color:var(--ink);font-weight:500;line-height:1.45;box-shadow:var(--shadow);}
+.chal-dot{width:26px;height:26px;border-radius:50%;background:var(--surface-soft);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.red-quote{background:var(--primary);border-radius:var(--r-md);padding:24px 28px;margin:22px 0;}
+.red-quote p{font-family:var(--font-serif);font-size:17px;font-style:italic;color:#fff;line-height:1.75;}
+
+.closing{padding:72px 0;text-align:center;border-top:1px solid var(--hairline-soft);}
+.closing-orb{width:60px;height:60px;border-radius:50%;background:var(--surface-soft);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 24px;}
+.closing h2{font-size:clamp(28px,5vw,40px);font-weight:700;letter-spacing:-1px;color:var(--ink);margin-bottom:12px;}
+.closing-sub{font-size:18px;font-weight:300;color:var(--muted);margin-bottom:16px;}
+.closing-body{font-size:16px;color:var(--body);line-height:1.8;max-width:480px;margin:0 auto 32px;}
+.cta-btn{display:inline-block;background:var(--primary);color:#fff;font-size:15px;font-weight:600;border-radius:var(--r-sm);padding:14px 34px;text-decoration:none;box-shadow:0 4px 14px rgba(255,56,92,.32);transition:background .15s,transform .15s;}
+.cta-btn:hover{background:var(--primary-active);transform:translateY(-1px);}
+footer{border-top:1px solid var(--hairline);padding:28px clamp(16px,4vw,80px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.ft-l{font-size:13px;color:var(--muted);}
+.ft-r{font-size:12px;color:var(--muted-soft);}
+
+/* back-to-top */
+#toTop{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;border:none;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(255,56,92,.4);opacity:0;pointer-events:none;transition:opacity .2s,transform .15s;z-index:120;}
+#toTop.show{opacity:1;pointer-events:auto;}
+#toTop:hover{transform:translateY(-2px);background:var(--primary-active);}
+
+.fi{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
+.fi.vis{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav class="nav">
+  <a class="nav-brand" href="#top"><div class="nav-orb">📖</div><span class="nav-name">사장학개론 독서모임</span></a>
+  <div class="nav-links">
+    <a href="#intro">인트로</a><a href="#questions">토론 질문</a><a href="#q1ans">Q1</a><a href="#q2ans">Q2</a><a href="#q3ans">Q3</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero" id="top">
+  <div class="hero-bg"><span class="c1"></span><span class="c2"></span></div>
+  <div class="wrap">
+    <div class="hero-tag"><span class="hero-tag-dot"></span>독서모임 · 토론 발표</div>
+    <h1>『사장학개론』</h1>
+    <p class="hero-sub">3가지 질문에 대한 나의 대답</p>
+    <p class="hero-tagline">장사꾼에서 사장으로 — 그리고 삶의 주권을 되찾는 일</p>
+    <div class="hero-meta"><div class="hero-line"></div><span class="hero-presenter">발표자 홍요셉</span></div>
+  </div>
+</div>
+
+<!-- Quick nav buttons -->
+<div class="quicknav">
+  <div class="wrap">
+    <div class="quicknav-label">바로가기</div>
+    <div class="quicknav-grid">
+      <a class="qn-btn" href="#intro"><span class="qn-tag">INTRO</span><span class="qn-title">세 번 읽은 책</span></a>
+      <a class="qn-btn" href="#q1ans"><span class="qn-tag">Q1</span><span class="qn-title">장사꾼 → 사장</span></a>
+      <a class="qn-btn" href="#q2ans"><span class="qn-tag">Q2</span><span class="qn-title">도전을 막는 것</span></a>
+      <a class="qn-btn" href="#q3ans"><span class="qn-tag">Q3</span><span class="qn-title">10년 후의 방향</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- Intro -->
+<section class="section" id="intro">
+  <div class="wrap">
+    <div class="eyebrow fi"><span class="eyebrow-dot"></span>들어가며</div>
+    <h2 class="section-title fi">세 번 읽었고, 매번 다른 사람이 되어 읽었다</h2>
+    <p class="section-sub fi">거의 모든 페이지에 밑줄이 그어진 책, 김승호 회장의 《사장학개론》</p>
+    <p class="lead fi">2024년 처음 이 책을 덮으며 가장 먼저 든 생각은 하나였습니다. "버릴 페이지가 단 한 장도 없다."</p>
+    <p class="prose-p fi">한 장 한 장이 사장의 실무 지침서처럼 읽혔습니다. 그렇게 세 번을 읽었고, 세 번 모두 조금씩 다른 사람이 되어 읽었습니다.</p>
+    <div class="read-grid fi">
+      <div class="read-card"><div class="read-year">2024 · 첫 번째</div><h4>신선한 충격</h4><p>모든 문장이 충격이었습니다. 사장이라는 자리가 이렇게 입체적인 세계라는 걸 처음 알았습니다.</p></div>
+      <div class="read-card"><div class="read-year">2025 · 두 번째</div><h4>다른 무게</h4><p>퇴사를 결심한 뒤 다시 펼쳤습니다. 같은 문장이 전혀 다른 무게로 다가왔습니다.</p></div>
+      <div class="read-card now"><div class="read-year">2026 · 세 번째 (현재)</div><h4>점검표가 되다</h4><p>빠르게 성장하는 지금, 이제 모든 내용이 조언이 아니라 점검표처럼 읽힙니다.</p></div>
+    </div>
+    <div class="pull fi">"결국, <span class="accent">마음먹기</span>에 달려 있다."</div>
+    <p class="prose-p fi">잘되는 사람에게는 이유가 있습니다. 끊임없이 배우고, 안주하지 않고, 사장으로서 책임을 끝까지 집니다. 이 책이 제 가슴에 가장 깊이 남긴 세 가지 질문으로 이야기를 시작합니다.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Q overview -->
+<section class="section" id="overview">
+  <div class="wrap">
+    <div class="eyebrow fi"><span class="eyebrow-dot"></span>오늘의 토론</div>
+    <h2 class="section-title fi">세 가지 질문</h2>
+    <p class="section-sub fi">한 사람의 13년이 무너지고, 다시 세워진 이야기</p>
+    <div class="q-overview fi">
+      <div class="q-ov-card"><span class="q-pill">Q1</span><h3>장사꾼인가, 사장인가</h3><p>혼자 떠안던 슈퍼맨에서, 함께 만들어가는 사람으로</p></div>
+      <div class="q-ov-card"><span class="q-pill">Q2</span><h3>나는 도전했는가</h3><p>막연한 두려움과 조직이라는 프레임을 넘어서</p></div>
+      <div class="q-ov-card"><span class="q-pill">Q3</span><h3>10년 후, 그 방향인가</h3><p>매일 1%의 선택이 삶의 주권을 만든다</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Full questions -->
+<section class="section" id="questions">
+  <div class="wrap">
+    <div class="eyebrow fi"><span class="eyebrow-dot"></span>토론 질문 전문</div>
+    <h2 class="section-title fi">읽고 이야기 나눠보세요</h2>
+    <p class="section-sub fi">『사장학개론』 김승호 저자의 핵심 질문 3가지</p>
+    <div class="q-block fi">
+      <div class="q-block-header"><span class="q-pill q-pill-lg">Q1</span><h3 class="q-block-title">당신은 지금 '장사꾼'으로 살고 있나요? '사장'으로 살고 있나요?</h3></div>
+      <div class="book-quote"><p>"장사는 내가 모든 것을 직접 해야 하는 슈퍼맨의 일이고, 사업은 나보다 뛰어난 사람을 품고 비전을 함께 나아가는 일이다."</p></div>
+      <div class="discuss-list">
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>아직도 혼자서 키맨이 되어 모든 것을 통제하려고 있지는 않은가요?</div>
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>내가 없으면 안 된다는 생각에 사로잡혀 있는 건 아닌가요?</div>
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>자신은 지금 장사꾼과 사장의 자세 중 어떤 쪽으로 가고 있는지 이야기 나눠 보세요.</div>
+      </div>
+    </div>
+    <div class="q-block fi">
+      <div class="q-block-header"><span class="q-pill q-pill-lg">Q2</span><h3 class="q-block-title">지금까지 당신은 도전하는 사람이었나요? 도전하지 못했다면 가장 큰 이유는 무엇이었나요?</h3></div>
+      <div class="book-quote"><p>"돈이 있어야 사업을 할 수 있다고 생각하는 사람은, 돈이 있어도 사업에 성공하지 못한다."</p></div>
+      <div class="book-quote" style="margin-top:0;"><p>"커피와 홍차 중 하나를 고르는 것이 아니라, 콜라를 요청하는 사람이 될 수 있어야 한다"</p></div>
+      <div class="discuss-list">
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>도전하지 못한 이유가 진짜 장벽이었는지, 아니면 두려움이나 프레임의 영향이었나요?</div>
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>자신의 현재 프레임에 갇혀 있었던 건 아닌가요?</div>
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>9번 실패해도 도전하는 삶이 더 의미 있다는 작가의 이야기에 대해 나눠보세요.</div>
+      </div>
+    </div>
+    <div class="q-block fi">
+      <div class="q-block-header"><span class="q-pill q-pill-lg">Q3</span><h3 class="q-block-title">10년 후 당신이 원하는 삶의 모습은 무엇이며, 지금 그 방향을 향하고 있는가요?</h3></div>
+      <p class="q-body-text">이 책의 핵심은 사장이 되는 기술이 아니라, 자신의 삶에 진정한 주권을 되찾는 것이라고 생각됩니다.</p>
+      <div class="discuss-list">
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>직장인이라면, 지금 커리어는 올바른 방향이라고 생각되나요?</div>
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>사업을 한다면, 왜 이 사업을 열심히 하는지, 올바른 방향이라 생각하나요?</div>
+        <div class="discuss-item"><span class="discuss-arrow">▶</span>지금 하는 일이 10년 후의 내가 원하는 모습과 연결되어 있나요?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- Answers -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow fi"><span class="eyebrow-dot"></span>발표자의 대답</div>
+    <h2 class="section-title fi">홍요셉의 이야기</h2>
+    <p class="section-sub fi">HRD 14년, 장사꾼에서 사장으로 가는 길</p>
+
+    <!-- Q1 -->
+    <div class="answer-block fi" id="q1ans">
+      <div class="answer-label"><span class="q-pill q-pill-lg">Q1 대답</span><span class="answer-label-text">나는 지금 '사장'으로 이동하고 있다</span></div>
+      <p class="lead">2024년까지 저는 분명히 '장사꾼'에 가까운 삶을 살았습니다.</p>
+      <p class="prose-p">14년 차 HRD 교육기획자이자 정부지원사업 PM으로서, 대부분의 일을 제가 직접 챙겨야 한다고 믿었습니다. <strong>"내가 가장 잘 아니까 내가 하는 게 빠르다"</strong>는 생각에 모든 역할이 저에게 집중됐고, 대체 불가능한 '키맨'이 되어야만 직성이 풀렸습니다. 하지만 2025년 퇴사를 경험하며 깨달았습니다 — 혼자 잘하는 사람보다 함께 성장하는 사람이 더 멀리 간다는 것을요.</p>
+
+      <div class="cmp" role="table" aria-label="장사꾼과 사장의 방식 비교">
+        <div class="cmp-row cmp-head"><div class="cmp-cell k"></div><div class="cmp-cell trade">장사꾼의 방식</div><div class="cmp-cell boss">사장의 방식</div></div>
+        <div class="cmp-row"><div class="cmp-cell k">핵심 동력</div><div class="cmp-cell trade-c">나 자신의 물리적 시간과 노동력</div><div class="cmp-cell boss-c">타인의 전문성과 기술의 연결</div></div>
+        <div class="cmp-row"><div class="cmp-cell k">문제 해결</div><div class="cmp-cell trade-c">내가 직접 배워서 완벽하게 처리</div><div class="cmp-cell boss-c">나보다 뛰어난 사람을 찾아 비전 공유</div></div>
+        <div class="cmp-row"><div class="cmp-cell k">성장의 한계</div><div class="cmp-cell trade-c">'슈퍼맨' 한 명의 역량에 갇힘</div><div class="cmp-cell boss-c">협업 네트워크로 무한 확장 가능</div></div>
+      </div>
+
+      <div class="insight">
+        <span class="insight-icon">🤖</span>
+        <p class="insight-body"><strong>AI 시대가 이 생각을 더 확고하게 만들었습니다.</strong> AI를 다루는 전문가는 차고 넘칩니다. 하지만 진짜 가치는 그 기술을 필요로 하는 <em>시장의 니즈, 구체적인 도메인</em>과 결합할 때 비로소 발현됩니다. 관광·HRD·취업지원 현장을 아는 사람과 기술을 아는 사람이 함께할 때 훨씬 큰 결과가 나옵니다.</p>
+      </div>
+
+      <div class="callout">아직 완전한 사장이라 말할 수는 없습니다. 다만 혼자 모든 걸 해결하려던 자리에서, 사람과 사람을 연결하는 방향으로 확실히 이동하고 있습니다.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="answer-block fi" id="q2ans">
+      <div class="answer-label"><span class="q-pill q-pill-lg">Q2 대답</span><span class="answer-label-text">두려움이라는 진짜 장벽을 넘어</span></div>
+      <p class="lead">솔직히 저는 오랫동안 도전을 미뤄온 사람입니다.</p>
+
+      <div class="umbrella-row">
+        <svg class="umbrella-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="조직이라는 우산 아래 사람">
+          <line x1="20" y1="10" x2="8" y2="40" stroke="#c1c1c1" stroke-width="2"/>
+          <line x1="60" y1="6" x2="52" y2="38" stroke="#c1c1c1" stroke-width="2"/>
+          <line x1="150" y1="8" x2="140" y2="40" stroke="#c1c1c1" stroke-width="2"/>
+          <line x1="185" y1="14" x2="176" y2="44" stroke="#c1c1c1" stroke-width="2"/>
+          <path d="M30 92 Q100 35 170 92 Q135 78 100 92 Q65 78 30 92 Z" fill="#34384a"/>
+          <path d="M30 92 Q65 78 100 92 Q135 78 170 92" stroke="#fff" stroke-width="1.5" fill="none" opacity=".5"/>
+          <line x1="100" y1="92" x2="100" y2="150" stroke="#222" stroke-width="3"/>
+          <path d="M100 150 Q100 162 112 162" stroke="#222" stroke-width="3" fill="none"/>
+          <circle cx="100" cy="120" r="9" fill="#6a6a6a"/>
+          <rect x="92" y="130" width="16" height="28" rx="6" fill="#6a6a6a"/>
+          <text x="100" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">조직</text>
+        </svg>
+        <div>
+          <div class="umb-block"><h5>도전을 미뤘던 진짜 이유</h5><p>돈도 시간도 아닌, 경험해보지 못한 미지의 영역에 대한 막연한 두려움이었습니다.</p></div>
+          <div class="umb-block alert"><h5>치명적인 착각</h5><p>조직 안에서 최고가 되면, 조직의 명성이 곧 나의 가치 상승을 완벽히 담보해 줄 것이라 믿었습니다.</p></div>
+        </div>
+      </div>
+
+      <p class="prose-p">그러나 그것은 거대한 착각이었습니다. 통제할 수 없는 외부 변수 한 번에, 조직 안에서의 위상은 한순간에 무너질 수 있었습니다.</p>
+
+      <div class="flow" aria-label="13년의 성과를 무너뜨린 외부 변수의 흐름">
+        <div class="flow-box">13년간 쌓아 올린<b>S등급 정부지원사업</b></div>
+        <div class="flow-arrow">⚡<span>예고 없는<br>정책 변화</span></div>
+        <div class="flow-box dashed">타 사업과의<b>강제 통폐합</b></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box dark">깨달음<b>회사는 회사고, 나는 나다</b></div>
+      </div>
+
+      <p class="prose-p">진정한 경쟁력은 조직의 울타리 밖에 존재하는 <strong>'나 자신의 독립적 가치'</strong>에 있었습니다. 그날 이후, 기회만 보이면 망설임 없이 뛰어듭니다.</p>
+
+      <div class="chal-grid">
+        <div class="chal-chip"><span class="chal-dot">🤝</span>관광·레저 산업의 새 협회 설립 추진</div>
+        <div class="chal-chip"><span class="chal-dot">📑</span>새 사업 기회가 보이면 선제적 제안</div>
+        <div class="chal-chip"><span class="chal-dot">🎓</span>시장 니즈를 파악해 신규 교육과정 기획</div>
+        <div class="chal-chip"><span class="chal-dot">✍️</span>블로그 · 전자책 · 종이책 출간 도전</div>
+      </div>
+
+      <p class="prose-p" style="margin-bottom:8px;">김승호 작가는 9번 실패하더라도 10번째 도전을 해야 한다고 말합니다. <strong>저는 실패를 '기본값'으로 두고 의사결정을 합니다.</strong></p>
+
+      <div class="tree" aria-label="실패를 기본값으로 설정한 의사결정 모델">
+        <div class="tree-root">새로운 기회</div>
+        <div class="tree-path"><span class="tree-cond no">도전하지 않음</span><span class="tree-conn">→</span><span class="tree-result gray">현상 유지 · 0의 가치</span></div>
+        <div class="tree-path"><span class="tree-cond yes">도전함</span></div>
+        <div class="tree-indent">
+          <div class="tree-path"><span class="tree-cond">성공</span><span class="tree-conn">→</span><span class="tree-result win">성과 + 성장</span></div>
+          <div class="tree-path"><span class="tree-cond">실패</span><span class="tree-conn">→</span><span class="tree-result win">성장 · 경험치 획득</span></div>
+        </div>
+      </div>
+
+      <div class="red-quote"><p>"이제 두려움이라는 프레임에 갇혀 멈춰 서는 일은 결코 없을 것이다."</p></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="answer-block fi" id="q3ans">
+      <div class="answer-label"><span class="q-pill q-pill-lg">Q3 대답</span><span class="answer-label-text">이제는 1초의 망설임 없이 고개를 끄덕인다</span></div>
+      <div class="book-quote"><p>"평생 그 일만 하며 살았을 때, 그리하여 그 일을 아주 잘하게 되었을 때, 당신은 자신의 인생이 좋았다고 말할 수 있는가? 만일 그렇다고 믿을 수 있다면, 그것이 바로 지금 당신이 원하는 일이다."</p></div>
+      <p style="font-size:13px;color:var(--primary);font-weight:500;margin:-8px 0 22px 4px;">— 구본형, 《그대 스스로를 고용하라》</p>
+      <p class="prose-p">예전의 저라면 이 질문 앞에서 '조직에서 인정받고 성과도 나오니 맞는 일 아닐까'라며 타협했을 겁니다. 확신 없는 대답 뒤엔 늘 <strong>'조직이 부여한 목표'만 있었을 뿐, '나의 진정한 바람과 주권'은 없었습니다.</strong> 하지만 지금의 저는 단 1초의 망설임 없이 고개를 끄덕일 수 있습니다.</p>
+
+      <div class="temple" aria-label="10년 후를 지탱하는 3개의 비즈니스 기둥">
+        <div class="temple-roof">타인의 성장을 돕는 주체적 브랜드</div>
+        <div class="temple-cols">
+          <div class="temple-col"><b>교육가</b><span>누군가의 커리어를 실질적으로 변화시키는 교육 설계</span></div>
+          <div class="temple-col"><b>작가</b><span>기록과 통찰로 누군가의 새로운 도전을 이끌어내는 글</span></div>
+          <div class="temple-col"><b>교육사업가</b><span>조직의 허락 없이 스스로 시장의 가치를 창출하는 리더</span></div>
+        </div>
+        <div class="temple-base">스스로 가치를 만들어내는 삶</div>
+      </div>
+
+      <p class="prose-p">놀랍게도 지금 저는 그 방향으로 가고 있습니다. 출퇴근 지하철의 소음 속에서도 스마트폰으로 500자의 문장을 써 내려가고, 새벽과 밤 시간을 활용해 콘텐츠를 만듭니다. <strong>인생은 거대한 결심이 아니라 반복되는 작은 행동으로 만들어진다</strong>고 믿기 때문입니다.</p>
+
+      <div class="insight">
+        <span class="insight-icon">🌱</span>
+        <p class="insight-body">하루의 성장은 작아 보이지만, 1년이 지나면 완전히 다른 사람이 됩니다. 이 <em>매일 1% 성장 프로젝트</em>의 작은 벽돌들이 모여 10년 후 삶의 주권을 가진 내 모습으로 연결될 것을 믿어 의심치 않습니다.</p>
+      </div>
+
+      <div class="callout">그래서 저는 지금도 확신합니다. "10년 후 내가 원하는 삶을 향해 가고 있는가?"라는 질문에, "예"라고 답할 수 있다고 말입니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<div class="closing">
+  <div class="wrap">
+    <div class="closing-orb fi">❤️</div>
+    <h2 class="fi">방향을 향하고 있는가?</h2>
+    <p class="closing-sub fi">아직 도착하지 않았지만, 매일 조금씩 가고 있다.</p>
+    <p class="closing-body fi">이력서 한 장, 보고서 한 장을 가르치는 일이<br>결국 사람들이 스스로의 삶을 설계하도록 돕는 일과 연결된다.</p>
+    <a href="#top" class="cta-btn fi">멈추지 않을 것이다</a>
+  </div>
+</div>
+
+<footer>
+  <span class="ft-l">『사장학개론』 독서모임 발표 — 홍요셉</span>
+  <span class="ft-r">© 2026 독서모임</span>
+</footer>
+
+<button id="toTop" aria-label="맨 위로">↑</button>
+
+<script>
+const prog=document.getElementById('progress'),toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop;
+  const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  prog.style.width=(s/h*100)+'%';
+  toTop.classList.toggle('show',s>600);
+});
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fi').forEach((el,i)=>{el.style.transitionDelay=((i%4)*70)+'ms';obs.observe(el);});
+</script>
+</body>
+</html>
